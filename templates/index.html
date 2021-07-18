@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Loan Prediction</title>
+        <header>
+            <h1>Load Amount Prediction using Random Forest Regressor</h1>
+            <p>This ML model predicts the amount of loan that a customer can take based on different factors</p>
+        </header>
+    </head>
+    <body>
+        <style>
+            .login{
+                background-color : greenyellow;
+                text-align: center;
+            }
+            header{
+                text-align: center;
+                background-color: red;
+            }
+            footer{
+                text-align: center;
+                background-color:red;
+                width:100%;
+            }
+            body{
+                background-color: black;
+            }
+        </style>
+        <div class = 'login'>
+            <h1> Loan Amount Prediction</h1>
+            <form action="{{url_for('predict')}}"method = "post">
+                <h3>Gender</h3>
+                <select name = "Gender" required="required">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <br>
+
+                <h3>Are you married?</h3>
+                <select name = "Married" required="required">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                <br>
+
+                <h3>How many number of dependents</h3>
+                <select name = "Dependents" required="required">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3+">3+</option>
+                </select>
+                <br>
+
+                <h3>Select your education</h3>
+                <select name = "Education" required="required">
+                    <option value="Graduated">Graduated</option>
+                    <option value="Not Graduated">Not Graduated</option>
+                </select>
+                <br>
+
+                <h3>Select property area type</h3>
+                <select name = "Property Area" required="required">
+                    <option value="Urban">Urban</option>
+                    <option value="Semi Urban">Semi Urban</option>
+                    <option value="Rural">Rural</option>
+                </select>
+                <br>
+
+                <h3>Are you self employed?</h3>
+                <select name = "Self Employed" required="required">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                <br>
+
+                <h3>Credit History</h3>
+                <input type = "text" placeholder="credit history" required="required" name="Credit History">
+                <br>
+
+                <h3> Applicant Income</h3>
+                <input type = "text" placeholder="applicant income" required="required" name="ApplicantIncome">
+                <br>
+
+                <h3>Co-applicant Income</h3>
+                <input type = "text" placeholder="co applicant income" required="required" name="CoApplicantIncome">
+                <br>
+
+                <h3>Loan Amount Term</h3>
+                <input type = "text" placeholder="loan amount term" required="required" name="LoanAmountTerm">
+                <br>
+                <br>
+
+                <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+                
+            </form>
+            <br>
+            <br>
+            {{prediction_text}}
+
+        </div>
+    </body>
+    <footer>
+        <h3>Loan amount prediction | 2021</h3>
+    </footer>
+</html>
